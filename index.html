@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chores Organizer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script defer src="scripts/organizer.js"></script>
+  <link rel="stylesheet" type="text/css" href="organizer.css">
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>My First Bootstrap Page</h1>
+        <p>Chores Organizer</p> 
+      </div>
+        
+      <div class="btn-group">
+        <button type="button" class="btn btn-default" onclick="submit()">Submit</button>          
+        
+        <select id='state' class="form-select form-select-lg" aria-label=".form-select-lg example">
+            <option selected>Open this to select state</option>
+            <option value="1">To-do</option>
+            <option value="2">Ongoing</option>
+            <option value="3">Stand-by</option>
+            <option value="4">Finished</option>
+            <option value="5">Dropped</option>
+          </select>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-danger" onclick="remove()">Remove</button>          
+        
+        <select id='state_del' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this to select state</option>
+            <option value="1">To-do</option>
+            <option value="2">Ongoing</option>
+            <option value="3">Stand-by</option>
+            <option value="4">Finished</option>
+            <option value="5">Dropped</option>
+          </select>
+      </div>
+
+      <div class="input-group" id="chore_group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+        <input id="chore" type="text" class="form-control" name="chore" placeholder="text">
+      </div>
+      
+      <div class="row">
+        <div class="column" >
+            <h2 id='to-do-title'>To-do</h2>
+            <ul id='To-do'>
+                
+            </ul>
+        </div>
+        <div class="column" >
+            <h2>Ongoing</h2>
+            <ul id='Ongoing'>
+                
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Finished</h2>
+            <ul id="Finished">
+                
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Dropped</h2>
+            <ul id="Dropped">
+                
+            </ul>
+        </div>
+
+      <div class="column">
+        <h2>Stand-by</h2>
+        <ul id="Stand-by">
+            
+        </ul>
+      </div>
+    </div>
+  </body>
+  
+  </html>
