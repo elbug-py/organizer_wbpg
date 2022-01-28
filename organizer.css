@@ -13,6 +13,12 @@
     margin-top: 10px;
 }
 
-li button {
+#danger {
     margin-left: 10px;
+    size: 1px;
 }
+
+ul {
+    list-style-type: none;
+  }
+
