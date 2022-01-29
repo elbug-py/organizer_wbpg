@@ -14,7 +14,7 @@
 }
 
 li {
-    margin-left: 22px;
+    margin-left: 0px;
 }
 
 ul {
@@ -45,7 +45,7 @@ input {
     font-size: 20px;
 }
 
-#danger {
+#danger, #right, #left {
     margin-left: 1px;
     border-radius: 5px;
     z-index: 2;
