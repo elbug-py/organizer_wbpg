@@ -18,57 +18,58 @@
     <div class="jumbotron text-center">
         <h1>My First Bootstrap Page</h1>
         <p>Chores Organizer</p> 
-      </div>
-        
-      <div class="btn-group">
-        <button type="button" class="btn btn-default" id="submit">Submit</button>          
-        
-        <select id='state' class="form-select form-select-lg" aria-label=".form-select-lg example">
-            <option selected>Open this to select state</option>
-            <option value="1">To-do</option>
-            <option value="2">Ongoing</option>
-            <option value="3">Stand-by</option>
-            <option value="4">Finished</option>
-            <option value="5">Dropped</option>
-          </select>
-      </div>
-
-      <div class="input-group" id="chore_group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-        <input id="chore" type="text" class="form-control" name="chore" placeholder="text">
-      </div>
-      
+    </div>
       <div class="row">
         <div class="column" >
-            <h2 id='to-do-title'>To-do</h2>
+            <h2 id="to-do-title">To-do</h2>
+            <div class="input-group" id="input-group-todo">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <input id="chore_To-do" type="text" class="form-control" name="chore" placeholder="text">
+              <button class="btn btn-success btn-xs" id="add">+</button>
+            </div>
             <ul id='To-do'>
-              <li><button class="btn btn-success btn-xs" id="add">+</button></li>
             </ul>
         </div>
         <div class="column" >
             <h2>Ongoing</h2>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <input id="chore_Ongoing" type="text" class="form-control" name="chore" placeholder="text">
+              <button class="btn btn-success btn-xs" id="add">+</button>
+            </div>
             <ul id='Ongoing'>
-                <li><button class="btn btn-success btn-xs" id="add">+</button></li>
             </ul>
         </div>
 
         <div class="column">
             <h2>Finished</h2>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <input id="chore_Finished" type="text" class="form-control" name="chore" placeholder="text">
+              <button class="btn btn-success btn-xs" id="add">+</button>
+            </div>
             <ul id="Finished">
-              <li><button class="btn btn-success btn-xs" id="add">+</button></li>
             </ul>
         </div>
         <div class="column">
             <h2>Dropped</h2>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <input id="chore_Dropped" type="text" class="form-control" name="chore" placeholder="text">
+              <button class="btn btn-success btn-xs" id="add">+</button>
+            </div>
             <ul id="Dropped">
-              <li><button class="btn btn-success btn-xs" id="add">+</button></li>
             </ul>
         </div>
 
       <div class="column">
         <h2>Stand-by</h2>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+          <input id="chore_Stand-by" type="text" class="form-control" name="chore" placeholder="text">
+          <button class="btn btn-success btn-xs" id="add">+</button>
+        </div>
         <ul id="Stand-by">
-          <li><button class="btn btn-success btn-xs" id="add">+</button></li>
         </ul>
       </div>
     </div>
