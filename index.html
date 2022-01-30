@@ -16,7 +16,12 @@
 <body>
 
     <div class="jumbotron text-center">
-        <h1>My First Bootstrap Page</h1>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="user" type="text" class="form-control" name="user" placeholder="Username">
+      </div>
+        <button class="btn btn-warning btn-m" onclick="changeUser()" type="button">Submit Name <i class="glyphicon glyphicon-tag"></i></button>
+        <h1 id="Username"></h1>
         <p>Chores Organizer</p> 
     </div>
       <div class="row">
@@ -25,20 +30,26 @@
             <div class="input-group" id="input-group-todo">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
               <input id="chore_To-do" type="text" class="form-control" name="chore" placeholder="text">
-              <button class="btn btn-success btn-xs" id="add">+</button>
+              <button class="btn btn-success btn-xs" id="add"><i class="glyphicon glyphicon-check"></i></button>
             </div>
             <ul id='To-do'>
             </ul>
+            <button class="btn btn-success" id="save">Save</button>
+            <button class="btn btn-warning" id="load">Load</button>
+            <button class="btn btn-danger" id="clear">Clear</button>
         </div>
         <div class="column" >
             <h2>Ongoing</h2>
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
               <input id="chore_Ongoing" type="text" class="form-control" name="chore" placeholder="text">
-              <button class="btn btn-success btn-xs" id="add">+</button>
+              <button class="btn btn-success btn-xs" id="add"><i class="glyphicon glyphicon-check"></i></button>
             </div>
             <ul id='Ongoing'>
             </ul>
+            <button class="btn btn-success" id="save">Save</button>
+            <button class="btn btn-warning" id="load">Load</button>
+            <button class="btn btn-danger" id="clear">Clear</button>
         </div>
 
         <div class="column">
@@ -46,20 +57,26 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
               <input id="chore_Finished" type="text" class="form-control" name="chore" placeholder="text">
-              <button class="btn btn-success btn-xs" id="add">+</button>
+              <button class="btn btn-success btn-xs" id="add"><i class="glyphicon glyphicon-check"></i></button>
             </div>
             <ul id="Finished">
             </ul>
+            <button class="btn btn-success" id="save">Save</button>
+            <button class="btn btn-warning" id="load">Load</button>
+            <button class="btn btn-danger" id="clear">Clear</button>
         </div>
         <div class="column">
             <h2>Dropped</h2>
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
               <input id="chore_Dropped" type="text" class="form-control" name="chore" placeholder="text">
-              <button class="btn btn-success btn-xs" id="add">+</button>
+              <button class="btn btn-success btn-xs" id="add"><i class="glyphicon glyphicon-check"></i></button>
             </div>
             <ul id="Dropped">
             </ul>
+            <button class="btn btn-success" id="save">Save</button>
+            <button class="btn btn-warning" id="load">Load</button>
+            <button class="btn btn-danger" id="clear">Clear</button>
         </div>
 
       <div class="column">
@@ -67,10 +84,13 @@
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
           <input id="chore_Stand-by" type="text" class="form-control" name="chore" placeholder="text">
-          <button class="btn btn-success btn-xs" id="add">+</button>
+          <button class="btn btn-success btn-xs" id="add"><i class="glyphicon glyphicon-check"></i></button>
         </div>
         <ul id="Stand-by">
         </ul>
+        <button class="btn btn-success" id="save">Save</button>
+        <button class="btn btn-warning" id="load">Load</button>
+        <button class="btn btn-danger" id="clear">Clear</button>
       </div>
     </div>
   </body>
