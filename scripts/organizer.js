@@ -1,12 +1,8 @@
 state_arr = ['To-do', 'Ongoing', 'Finished', 'Dropped', 'Stand-by']
 
 
-$("#submit").on('click',function(){
-    submit();
-  });
-
 $(document).on('click', '#danger', function(){
-    $(this).closest('li').toggleClass('strike').fadeOut('slow', function() { $(this).remove(); });
+    $(this).closest('li').fadeOut('slow', function() { $(this).remove(); });
 });
 
 $(document).on('click', "#add", function(){
@@ -48,21 +44,9 @@ $(document).on('click', '#left', function(){
 
 
 
-
-/*$(document).on('click', '#user-btn', function(){
-    if (localStorage.username) {
-        document.getElementById("demo").innerHTML = localStorage.username;
-      } else {
-        localStorage.username = $(this).siblings('input').val();
-      }
-    
-    console.log(user)
-    $(this).siblings('input').val("");
-});*/
-
 $("#Username").text(localStorage.username);
 
-function changeUser(){
+$(document).on('click', '#submit', function(){
     if ($("#user").val() == '') {
 
         console.log(localStorage.username)
@@ -72,8 +56,7 @@ function changeUser(){
       }
     
       $("#user").val("");
-}
-
+});
 
 $(document).on('click', '#save', function(){
 
@@ -103,9 +86,6 @@ $(document).on('click', '#load', function(){
     for (chore of obj){
         $("#"+state).append('<li>'+chore+'</li>');
         }
-    
-
-
 });
 
 
@@ -115,6 +95,21 @@ $(document).on('click', '#clear', function(){
     localStorage.setItem(state, '');
 
 });
+
+
+let text = localStorage.getItem("users");
+let obj = JSON.parse(text);
+
+if (obj != null){
+    
+    users = obj
+    console.log("entré", obj)
+} else{
+    users = {}
+    console.log("Empty")
+}
+
+
 
 
 for (state of state_arr){
@@ -128,3 +123,49 @@ for (state of state_arr){
         console.log(error)
     }
 }
+
+
+
+$(document).on('click', '#userLoad', function(){
+    let user = $("#user").val()
+    let text = localStorage.getItem("users");
+    let obj = JSON.parse(text);
+    console.log(obj)
+    for (state of state_arr){
+        try{
+        let chores = obj[user][state]
+        console.log(chores)
+        for (chore of chores){
+            for (chor of chore){
+                console.log("element: ",chore[0])
+                $("#"+state).append('<li>'+chor+'</li>');
+                }
+            }
+        } catch (error){
+            console.log('owo')
+        }
+    }
+    console.log("users:", obj)
+});
+
+
+console.log(users)
+
+
+$(document).on('click', '#userSave', function(){
+
+    for (state of state_arr){
+        try{
+        let text = localStorage.getItem(state);
+        let obj = JSON.parse(text);
+        console.log("ANASHEI", obj)
+        users[$("#user").val()][state] = obj.split(',')
+        } catch (error){
+            console.log(error)
+        }
+    }
+
+    let myJSON = JSON.stringify(users)
+    localStorage.setItem("users", myJSON)
+    console.log("users:", users)
+});
