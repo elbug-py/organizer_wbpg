@@ -136,10 +136,10 @@ $(document).on('click', '#userLoad', function(){
         let chores = obj[user][state]
         console.log(chores)
         for (chore of chores){
-            for (chor of chore){
-                console.log("element: ",chore[0])
-                $("#"+state).append('<li>'+chor+'</li>');
-                }
+            
+            console.log("element: ",chore[0])
+            $("#"+state).append('<li>'+chore+'</li>');
+                
             }
         } catch (error){
             console.log('owo')
@@ -149,17 +149,23 @@ $(document).on('click', '#userLoad', function(){
 });
 
 
-console.log(users)
 
 
 $(document).on('click', '#userSave', function(){
 
+    if (users[$("#user").val()] == undefined){
+        console.log('ESTABA VACIO')
+        users[$("#user").val()] = {}
+    }
+    else{
+    console.log('AAAAAAAAAA')
+    users[$("#user").val()] ={}
     for (state of state_arr){
         try{
         let text = localStorage.getItem(state);
         let obj = JSON.parse(text);
         console.log("ANASHEI", obj)
-        users[$("#user").val()][state] = obj.split(',')
+        users[$("#user").val()][state] = obj
         } catch (error){
             console.log(error)
         }
@@ -168,4 +174,7 @@ $(document).on('click', '#userSave', function(){
     let myJSON = JSON.stringify(users)
     localStorage.setItem("users", myJSON)
     console.log("users:", users)
+    }
 });
+
+//TO EMPTY A USERS DATA FIRST CLEAR ALL COLUMNS THEN SAVE USER, ALSO TO SAVE DATA TO USER FIRST SAVE THE COLUMNS AND THEN THE USER
