@@ -127,25 +127,41 @@ for (state of state_arr){
 
 
 $(document).on('click', '#userLoad', function(){
-    let user = $("#user").val()
-    let text = localStorage.getItem("users");
-    let obj = JSON.parse(text);
-    console.log(obj)
-    for (state of state_arr){
-        try{
-        let chores = obj[user][state]
-        console.log(chores)
-        for (chore of chores){
+    if ($("#user").val() == '') {
+
+        console.log(localStorage.username)
+    } else {
+
+        let user = $("#user").val()
+        let text = localStorage.getItem("users");
+        let obj = JSON.parse(text);
+        console.log("OBJETO AQUI: ",obj[user])
+        console.log(Object.keys(obj))
+
+        if(obj[user] != undefined){
+            localStorage.username = $("#user").val()
+            document.getElementById("Username").innerHTML = localStorage.username;
+            for (state of state_arr){
+                try{
+                    let chores = obj[user][state]
+                    console.log(chores)
+                    for (chore of chores){
             
-            console.log("element: ",chore[0])
-            $("#"+state).append('<li>'+chore+'</li>');
+                        console.log("element: ",chore[0])
+                        $("#"+state).append('<li>'+chore+'</li>');
                 
-            }
+                    }
         } catch (error){
-            console.log('owo')
+            console.log(error)
         }
     }
     console.log("users:", obj)
+    }
+    else{
+        alert("User Not Found, Please Enter A Valid User")
+    }
+    }
+    $("#user").val("");
 });
 
 
@@ -154,18 +170,27 @@ $(document).on('click', '#userLoad', function(){
 $(document).on('click', '#userSave', function(){
 
     if (users[$("#user").val()] == undefined){
-        console.log('ESTABA VACIO')
+        console.log('CREATE NEW')
         users[$("#user").val()] = {}
+        let myJSON = JSON.stringify(users)
+        localStorage.setItem("users", myJSON)
+        console.log("users:", users)
     }
     else{
-    console.log('AAAAAAAAAA')
+    console.log('OVERWRITE')
     users[$("#user").val()] ={}
     for (state of state_arr){
         try{
-        let text = localStorage.getItem(state);
-        let obj = JSON.parse(text);
-        console.log("ANASHEI", obj)
-        users[$("#user").val()][state] = obj
+            ul = document.getElementById(state).children
+    
+            chore_arr = []
+            for (li of ul){
+                if (chore_arr.includes(li)== false){
+                chore_arr.push(li.innerHTML)
+                }
+            }
+        console.log("ANASHEI", chore_arr)
+        users[$("#user").val()][state] = chore_arr
         } catch (error){
             console.log(error)
         }
@@ -175,6 +200,22 @@ $(document).on('click', '#userSave', function(){
     localStorage.setItem("users", myJSON)
     console.log("users:", users)
     }
+
+    localStorage.username = $("#user").val()
+    document.getElementById("Username").innerHTML = localStorage.username;
 });
 
-//TO EMPTY A USERS DATA FIRST CLEAR ALL COLUMNS THEN SAVE USER, ALSO TO SAVE DATA TO USER FIRST SAVE THE COLUMNS AND THEN THE USER
+
+$(document).on('click', '#userDelete', function(){
+
+    if (users[$("#user").val()] == undefined){
+        alert("User Not Found, Please Enter A Valid User")
+    }
+    else{
+    console.log('AAAAAAAAAA')
+    delete users[$("#user").val()];
+    let myJSON = JSON.stringify(users);
+    localStorage.setItem("users", myJSON);
+    console.log("users:", users);
+    }
+});
